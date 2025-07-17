@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Shield, Users, Phone, MapPin, BookOpen, AlertCircle } from 'lucide-react';
+import { Shield, Users, Phone, MapPin, Heart, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 
@@ -10,80 +10,136 @@ const WelcomeScreen = () => {
 
   const features = [
     {
-      icon: AlertCircle,
-      title: "Instant SOS Alerts",
-      description: "Send emergency alerts to trusted contacts and nearby helpers instantly"
+      icon: Shield,
+      title: "Instant SOS",
+      description: "One-tap emergency alerts to trusted contacts and authorities"
     },
     {
       icon: MapPin,
-      title: "Real-time Location",
-      description: "Share your live location with trusted contacts during emergencies"
+      title: "Safe Location Sharing",
+      description: "Share your real-time location with people you trust"
     },
     {
       icon: Users,
-      title: "Community Support",
-      description: "Connect with verified helpers and volunteers in your area"
+      title: "Community Network",
+      description: "Connect with verified helpers and volunteers nearby"
     },
     {
-      icon: BookOpen,
-      title: "Safety Education",
-      description: "Learn self-defense techniques and safety tips from experts"
+      icon: Heart,
+      title: "Always Protected",
+      description: "24/7 safety monitoring and emergency response"
     }
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-teal-50 to-blue-50 flex flex-col">
-      {/* Header */}
-      <div className="flex-1 flex flex-col items-center justify-center px-6 py-8">
-        <div className="text-center mb-8">
-          <div className="bg-gradient-to-r from-teal-500 to-blue-500 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-            <Shield className="w-10 h-10 text-white" />
+    <div className="mobile-container bg-gradient-to-br from-slate-50 via-blue-50/30 to-teal-50/40">
+      {/* Hero Section */}
+      <div className="px-6 pt-16 pb-8">
+        <div className="text-center fade-in">
+          {/* Logo */}
+          <div className="relative mx-auto mb-8">
+            <div className="w-20 h-20 bg-gradient-to-br from-primary to-teal-600 rounded-3xl flex items-center justify-center shadow-xl shadow-primary/25 mx-auto">
+              <Shield className="w-10 h-10 text-white" />
+            </div>
+            <div className="absolute -top-1 -right-1 w-6 h-6 bg-gradient-to-br from-green-400 to-green-500 rounded-full flex items-center justify-center">
+              <Star className="w-3 h-3 text-white" />
+            </div>
           </div>
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">ResQ</h1>
-          <p className="text-xl text-gray-600 mb-2">Your Personal Safety Companion</p>
-          <p className="text-base text-gray-500 max-w-sm mx-auto leading-relaxed">
-            Empowering you with instant emergency response, community support, and safety education
+
+          {/* Brand */}
+          <h1 className="text-4xl font-bold text-foreground mb-3 text-shadow">
+            ResQ
+          </h1>
+          <p className="text-xl font-medium text-primary mb-2">
+            Your Personal Safety Guardian
+          </p>
+          <p className="text-base text-muted-foreground max-w-sm mx-auto leading-relaxed">
+            Stay protected with instant emergency response, trusted community support, and smart safety features
           </p>
         </div>
+      </div>
 
-        {/* Features Grid */}
-        <div className="w-full max-w-md space-y-4 mb-8">
+      {/* Features */}
+      <div className="px-6 mb-8">
+        <div className="grid grid-cols-2 gap-4 slide-up">
           {features.map((feature, index) => (
-            <Card key={index} className="p-4 bg-white/80 backdrop-blur-sm border-0 shadow-sm">
-              <div className="flex items-start space-x-3">
-                <div className="bg-teal-100 p-2 rounded-lg">
-                  <feature.icon className="w-5 h-5 text-teal-600" />
+            <Card key={index} className="safe-card p-4 scale-in" style={{ animationDelay: `${index * 0.1}s` }}>
+              <div className="text-center">
+                <div className="w-12 h-12 bg-gradient-to-br from-primary/10 to-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-3">
+                  <feature.icon className="w-6 h-6 text-primary" />
                 </div>
-                <div className="flex-1">
-                  <h3 className="font-semibold text-gray-900 text-sm">{feature.title}</h3>
-                  <p className="text-gray-600 text-xs mt-1">{feature.description}</p>
-                </div>
+                <h3 className="font-semibold text-foreground text-sm mb-1">
+                  {feature.title}
+                </h3>
+                <p className="text-xs text-muted-foreground leading-relaxed">
+                  {feature.description}
+                </p>
               </div>
             </Card>
           ))}
         </div>
       </div>
 
-      {/* CTA Buttons */}
-      <div className="px-6 pb-8">
-        <div className="space-y-3">
+      {/* Testimonial */}
+      <div className="px-6 mb-8">
+        <Card className="glass-card p-6 border border-green-200/60 fade-in">
+          <div className="flex items-start space-x-4">
+            <div className="w-12 h-12 bg-gradient-to-br from-green-400 to-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+              <span className="text-white font-bold text-lg">S</span>
+            </div>
+            <div className="flex-1">
+              <p className="text-sm text-foreground italic mb-2">
+                "ResQ helped me feel safe during my late night commute. The community support is amazing!"
+              </p>
+              <p className="text-xs text-muted-foreground font-medium">
+                Sarah M. • Verified User
+              </p>
+            </div>
+          </div>
+        </Card>
+      </div>
+
+      {/* CTA Section */}
+      <div className="px-6 pb-12">
+        <div className="space-y-4 scale-in">
           <Button 
             onClick={() => navigate('/signup')}
-            className="w-full bg-gradient-to-r from-teal-500 to-blue-500 hover:from-teal-600 hover:to-blue-600 text-white py-4 rounded-xl text-lg font-medium shadow-lg"
+            className="w-full primary-button h-14 rounded-2xl text-lg font-semibold touch-target focus-ring"
           >
-            Get Started
+            Get Started - It's Free
           </Button>
+          
           <Button 
             onClick={() => navigate('/login')}
             variant="outline"
-            className="w-full py-4 rounded-xl text-lg font-medium border-gray-200"
+            className="w-full h-12 rounded-xl border-2 border-gray-200 text-base font-medium touch-target focus-ring hover:bg-gray-50 transition-colors"
           >
-            Sign In
+            I Already Have an Account
           </Button>
         </div>
-        <p className="text-center text-xs text-gray-500 mt-4">
-          By continuing, you agree to our Terms of Service and Privacy Policy
-        </p>
+
+        {/* Trust indicators */}
+        <div className="mt-6 text-center">
+          <div className="flex items-center justify-center space-x-4 mb-3">
+            <div className="flex items-center space-x-1">
+              <Shield className="w-4 h-4 text-green-500" />
+              <span className="text-xs text-muted-foreground font-medium">Verified Safe</span>
+            </div>
+            <div className="flex items-center space-x-1">
+              <Users className="w-4 h-4 text-blue-500" />
+              <span className="text-xs text-muted-foreground font-medium">10K+ Users</span>
+            </div>
+            <div className="flex items-center space-x-1">
+              <Phone className="w-4 h-4 text-purple-500" />
+              <span className="text-xs text-muted-foreground font-medium">24/7 Support</span>
+            </div>
+          </div>
+          <p className="text-xs text-muted-foreground leading-relaxed">
+            By continuing, you agree to our{' '}
+            <span className="text-primary font-medium">Terms</span> and{' '}
+            <span className="text-primary font-medium">Privacy Policy</span>
+          </p>
+        </div>
       </div>
     </div>
   );
