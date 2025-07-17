@@ -1,13 +1,49 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import WelcomeScreen from '../components/onboarding/WelcomeScreen';
+import LoginScreen from '../components/auth/LoginScreen';
+import SignupScreen from '../components/auth/SignupScreen';
+import OTPScreen from '../components/auth/OTPScreen';
+import RoleSelectionScreen from '../components/auth/RoleSelectionScreen';
+import HomeDashboard from '../components/dashboard/HomeDashboard';
+import SOSScreen from '../components/emergency/SOSScreen';
+import LocationScreen from '../components/emergency/LocationScreen';
+import ReportingScreen from '../components/reporting/ReportingScreen';
+import TrustedContactsScreen from '../components/contacts/TrustedContactsScreen';
+import NewsScreen from '../components/news/NewsScreen';
+import LearnScreen from '../components/learn/LearnScreen';
+import ProfileScreen from '../components/profile/ProfileScreen';
+import SettingsScreen from '../components/profile/SettingsScreen';
+
+const queryClient = new QueryClient();
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <QueryClientProvider client={queryClient}>
+      <div className="min-h-screen bg-slate-50">
+        <Router>
+          <Routes>
+            <Route path="/" element={<WelcomeScreen />} />
+            <Route path="/login" element={<LoginScreen />} />
+            <Route path="/signup" element={<SignupScreen />} />
+            <Route path="/otp" element={<OTPScreen />} />
+            <Route path="/role-selection" element={<RoleSelectionScreen />} />
+            <Route path="/dashboard" element={<HomeDashboard />} />
+            <Route path="/sos" element={<SOSScreen />} />
+            <Route path="/location" element={<LocationScreen />} />
+            <Route path="/report" element={<ReportingScreen />} />
+            <Route path="/contacts" element={<TrustedContactsScreen />} />
+            <Route path="/news" element={<NewsScreen />} />
+            <Route path="/learn" element={<LearnScreen />} />
+            <Route path="/profile" element={<ProfileScreen />} />
+            <Route path="/settings" element={<SettingsScreen />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </Router>
       </div>
-    </div>
+    </QueryClientProvider>
   );
 };
 
