@@ -158,7 +158,7 @@ const HomeDashboard = () => {
                 <p className="text-xs text-gray-600">Sharing: Off</p>
               </div>
             </div>
-          </div>
+          </Card>
         </div>
 
         {/* Nearby Alerts */}
