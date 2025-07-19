@@ -161,16 +161,16 @@
 
   /* SOS Emergency button - large, pulsing, always accessible */
   .sos-button {
-    @apply bg-gradient-to-br from-emergency to-emergency-dark 
-           text-white font-bold shadow-2xl shadow-emergency/40 
+    @apply bg-gradient-to-br from-red-500 to-red-600 
+           text-white font-bold shadow-2xl shadow-red-500/40 
            transition-all duration-300 hover:scale-105 active:scale-95
            border-4 border-white/30 rounded-full;
     animation: sos-pulse 2s infinite;
   }
 
   @keyframes sos-pulse {
-    0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 hsl(var(--emergency) / 0.4); }
-    50% { transform: scale(1.02); box-shadow: 0 0 0 10px hsl(var(--emergency) / 0); }
+    0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgb(239 68 68 / 0.4); }
+    50% { transform: scale(1.02); box-shadow: 0 0 0 10px rgb(239 68 68 / 0); }
   }
 
   /* Primary action buttons */
