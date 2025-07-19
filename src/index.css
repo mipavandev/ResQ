@@ -182,7 +182,7 @@
 
   /* Safe, comfortable cards */
   .comfort-card {
-    @apply bg-gradient-to-br from-white via-safe-blue/30 to-safe-teal/20 
+    @apply bg-gradient-to-br from-white via-blue-50/50 to-teal-50/30 
            border border-border/40 shadow-md shadow-black/5 rounded-2xl backdrop-blur-sm;
   }
 
