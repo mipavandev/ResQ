@@ -3,52 +3,66 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ResQ Design System - Modern, Trustworthy, Emergency-Ready */
+/* ResQ Design System - Modern Mobile App, Trustworthy, Emergency-Ready */
 
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 215 25% 27%;
+    --foreground: 220 18% 20%;
 
     --card: 0 0% 100%;
-    --card-foreground: 215 25% 27%;
+    --card-foreground: 220 18% 20%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 27%;
+    --popover-foreground: 220 18% 20%;
 
-    /* Primary: Calm Teal for trust and safety */
-    --primary: 173 58% 39%;
+    /* Primary: Trustworthy Teal-Blue */
+    --primary: 200 95% 45%;
     --primary-foreground: 0 0% 100%;
+    --primary-light: 200 95% 55%;
+    --primary-dark: 200 95% 35%;
 
-    /* Secondary: Soft Gray */
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 215 25% 27%;
+    /* Secondary: Clean White with subtle tint */
+    --secondary: 210 40% 98%;
+    --secondary-foreground: 220 18% 20%;
 
     --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
+    --muted-foreground: 220 9% 46%;
 
-    --accent: 173 58% 39%;
+    --accent: 200 95% 45%;
     --accent-foreground: 0 0% 100%;
 
-    /* Emergency Red - reserved for SOS */
-    --destructive: 0 72% 51%;
+    /* Emergency Red - pulsing SOS button */
+    --destructive: 0 85% 55%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 173 58% 39%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 200 95% 45%;
 
-    --radius: 1rem;
+    --radius: 1.2rem;
 
-    /* Custom emergency colors */
-    --emergency: 0 72% 51%;
-    --emergency-foreground: 0 0% 100%;
-    --success: 142 69% 58%;
-    --success-foreground: 0 0% 100%;
-    --warning: 38 92% 50%;
-    --warning-foreground: 0 0% 100%;
-    --info: 199 89% 48%;
-    --info-foreground: 0 0% 100%;
+    /* Custom app colors */
+    --emergency: 0 85% 55%;
+    --emergency-light: 0 85% 65%;
+    --emergency-dark: 0 85% 45%;
+    --success: 142 76% 36%;
+    --success-light: 142 76% 46%;
+    --warning: 43 96% 56%;
+    --warning-light: 43 96% 66%;
+    --info: 200 95% 45%;
+    --info-light: 200 95% 55%;
+    
+    /* Safe colors for comfort */
+    --safe-blue: 210 100% 95%;
+    --safe-green: 140 60% 95%;
+    --safe-teal: 180 60% 95%;
+    
+    /* Mobile-specific variables */
+    --mobile-header: 4rem;
+    --mobile-bottom-nav: 4.5rem;
+    --mobile-safe-area-top: env(safe-area-inset-top);
+    --mobile-safe-area-bottom: env(safe-area-inset-bottom);
   }
 
   .dark {
@@ -91,39 +105,92 @@
     @apply bg-background text-foreground;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    font-size: 16px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Mobile-optimized container */
-  .mobile-container {
-    @apply max-w-sm mx-auto min-h-screen bg-background;
+  /* Real mobile app container - no margins, full screen */
+  .mobile-app {
+    @apply w-full min-h-screen bg-background overflow-hidden;
+    max-width: 100vw;
+    position: relative;
+  }
+
+  .mobile-screen {
+    @apply w-full h-screen overflow-hidden bg-background;
+    padding-top: var(--mobile-safe-area-top);
+    padding-bottom: var(--mobile-safe-area-bottom);
+  }
+
+  /* Mobile header with safe area */
+  .mobile-header {
+    height: var(--mobile-header);
+    @apply flex items-center justify-between px-6 bg-background/95 backdrop-blur-sm border-b border-border/60;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+
+  /* Content area accounting for header and bottom nav */
+  .mobile-content {
+    @apply px-6;
+    min-height: calc(100vh - var(--mobile-header) - var(--mobile-bottom-nav));
+    padding-bottom: 2rem;
+  }
+
+  /* Bottom navigation safe area */
+  .mobile-bottom-nav {
+    height: var(--mobile-bottom-nav);
+    @apply fixed bottom-0 left-0 right-0 bg-background/95 backdrop-blur-sm border-t border-border/60;
+    z-index: 50;
+    padding-bottom: var(--mobile-safe-area-bottom);
   }
 }
 
 @layer components {
-  /* Modern glass cards */
-  .glass-card {
-    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-xl shadow-black/5;
+  /* Modern mobile cards */
+  .mobile-card {
+    @apply bg-white/95 backdrop-blur-sm border border-border/60 rounded-2xl shadow-lg shadow-black/5;
   }
 
-  /* Emergency button styles */
-  .emergency-button {
-    @apply bg-gradient-to-br from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 
-           text-white font-bold shadow-xl shadow-red-500/25 
+  .glass-card {
+    @apply bg-white/90 backdrop-blur-md border border-white/30 shadow-xl shadow-black/10 rounded-2xl;
+  }
+
+  /* SOS Emergency button - large, pulsing, always accessible */
+  .sos-button {
+    @apply bg-gradient-to-br from-emergency to-emergency-dark 
+           text-white font-bold shadow-2xl shadow-emergency/40 
            transition-all duration-300 hover:scale-105 active:scale-95
-           border-2 border-red-400/50;
+           border-4 border-white/30 rounded-full;
+    animation: sos-pulse 2s infinite;
+  }
+
+  @keyframes sos-pulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 hsl(var(--emergency) / 0.4); }
+    50% { transform: scale(1.02); box-shadow: 0 0 0 10px hsl(var(--emergency) / 0); }
   }
 
   /* Primary action buttons */
   .primary-button {
-    @apply bg-gradient-to-br from-primary to-primary/90 hover:from-primary/90 hover:to-primary
-           text-primary-foreground font-semibold shadow-lg shadow-primary/25
-           transition-all duration-200 hover:scale-[1.02] active:scale-[0.98];
+    @apply bg-gradient-to-br from-primary to-primary-dark hover:from-primary-light hover:to-primary
+           text-primary-foreground font-semibold shadow-lg shadow-primary/30
+           transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] rounded-xl;
   }
 
-  /* Safe zone cards */
-  .safe-card {
-    @apply bg-gradient-to-br from-white to-gray-50/50 border border-gray-200/60
-           shadow-lg shadow-gray-900/5 rounded-2xl backdrop-blur-sm;
+  /* Safe, comfortable cards */
+  .comfort-card {
+    @apply bg-gradient-to-br from-white via-safe-blue/30 to-safe-teal/20 
+           border border-border/40 shadow-md shadow-black/5 rounded-2xl backdrop-blur-sm;
+  }
+
+  /* Quick action buttons */
+  .quick-action {
+    @apply bg-gradient-to-br from-white to-background/80 border border-border/60
+           shadow-md hover:shadow-lg transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]
+           rounded-xl backdrop-blur-sm;
   }
 
   /* Status indicators */

@@ -85,15 +85,16 @@ const HomeDashboard = () => {
   };
 
   return (
-    <div className="mobile-container bg-gradient-to-br from-slate-50 via-blue-50/30 to-teal-50/40 pb-20">
-      {/* Header */}
-      <div className="px-6 pt-12 pb-6">
-        <div className="flex items-center justify-between mb-6">
-          <div className="fade-in">
-            <h1 className="text-2xl font-bold text-foreground">
+    <div className="mobile-app">
+      <div className="mobile-screen bg-gradient-to-br from-blue-50 via-teal-50/50 to-green-50/30">
+        
+        {/* Header */}
+        <div className="mobile-header">
+          <div className="animate-fade-in">
+            <h1 className="text-xl font-bold text-foreground">
               Good evening, {userName}
             </h1>
-            <p className="text-sm text-muted-foreground mt-1">
+            <p className="text-sm text-muted-foreground">
               You're safe and protected
             </p>
           </div>
@@ -102,7 +103,7 @@ const HomeDashboard = () => {
               variant="ghost" 
               size="sm"
               onClick={() => navigate('/settings')}
-              className="w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all focus-ring"
+              className="w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all"
             >
               <Bell className="w-5 h-5 text-muted-foreground" />
             </Button>
@@ -110,67 +111,28 @@ const HomeDashboard = () => {
               variant="ghost" 
               size="sm"
               onClick={() => navigate('/profile')}
-              className="w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all focus-ring"
+              className="w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all"
             >
               <Settings className="w-5 h-5 text-muted-foreground" />
             </Button>
           </div>
         </div>
 
-        {/* Safety Status Card */}
-        <Card className="safe-card p-4 mb-6 scale-in">
-          <div className="flex items-center justify-between mb-3">
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-green-400 to-green-500 rounded-lg flex items-center justify-center">
-                <Shield className="w-4 h-4 text-white" />
-              </div>
-              <div>
-                <h3 className="font-semibold text-foreground">Safety Score</h3>
-                <p className="text-xs text-muted-foreground">Updated {safetyStatus.lastUpdate}</p>
-              </div>
-            </div>
-            <div className="text-right">
-              <div className="text-2xl font-bold text-green-600">{safetyStatus.score}%</div>
-              <div className="flex items-center space-x-1">
-                <Star className="w-3 h-3 text-yellow-500 fill-current" />
-                <span className="text-xs text-muted-foreground">Excellent</span>
-              </div>
-            </div>
-          </div>
-          
-          <div className="grid grid-cols-3 gap-3">
-            <div className="text-center p-2 bg-blue-50 rounded-lg">
-              <Users className="w-4 h-4 text-blue-600 mx-auto mb-1" />
-              <p className="text-xs font-medium text-foreground">{safetyStatus.contacts} Contacts</p>
-            </div>
-            <div className="text-center p-2 bg-green-50 rounded-lg">
-              <Navigation className="w-4 h-4 text-green-600 mx-auto mb-1" />
-              <p className="text-xs font-medium text-foreground">Location On</p>
-            </div>
-            <div className="text-center p-2 bg-purple-50 rounded-lg">
-              <Zap className="w-4 h-4 text-purple-600 mx-auto mb-1" />
-              <p className="text-xs font-medium text-foreground">Protected</p>
-            </div>
-          </div>
-        </Card>
-      </div>
-
-      {/* Emergency SOS Section */}
-      <div className="px-6 mb-8">
-        <Card className="glass-card p-6 border-2 border-red-200/60 slide-up">
-          <div className="text-center">
-            <h2 className="text-lg font-bold text-foreground mb-2">Emergency SOS</h2>
-            <p className="text-sm text-muted-foreground mb-6">
-              Press and hold to send instant alerts to your trusted contacts and emergency services
+        <div className="mobile-content">
+          {/* Emergency SOS Section - Most Prominent */}
+          <div className="mb-8 text-center animate-scale-in">
+            <h2 className="text-lg font-bold text-foreground mb-4">Emergency SOS</h2>
+            <p className="text-sm text-muted-foreground mb-6 max-w-xs mx-auto">
+              Press and hold to send instant alerts to trusted contacts and emergency services
             </p>
             
             <Button
               onClick={handleSOSPress}
-              className="w-32 h-32 rounded-full emergency-button text-2xl font-bold touch-target focus-ring mx-auto"
+              className="sos-button w-36 h-36 mx-auto"
             >
               <div className="flex flex-col items-center">
-                <AlertTriangle className="w-8 h-8 mb-1" />
-                <span>SOS</span>
+                <AlertTriangle className="w-10 h-10 mb-2" />
+                <span className="text-2xl font-bold">SOS</span>
               </div>
             </Button>
             
@@ -178,69 +140,106 @@ const HomeDashboard = () => {
               Hold for 3 seconds to activate
             </p>
           </div>
-        </Card>
-      </div>
 
-      {/* Quick Actions */}
-      <div className="px-6 mb-8">
-        <h3 className="text-lg font-semibold text-foreground mb-4">Quick Actions</h3>
-        <div className="grid grid-cols-2 gap-4">
-          {quickActions.map((action, index) => (
-            <Card 
-              key={index}
-              className="safe-card p-4 cursor-pointer hover:shadow-lg transition-all duration-200 scale-in"
-              style={{ animationDelay: `${index * 0.1}s` }}
-              onClick={action.action}
-            >
-              <div className="text-center">
-                <div className={`w-12 h-12 bg-gradient-to-br ${action.bg} rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-lg`}>
-                  <action.icon className="w-6 h-6 text-white" />
-                </div>
-                <h4 className="font-semibold text-foreground text-sm mb-1">
-                  {action.label}
-                </h4>
-                <p className="text-xs text-muted-foreground leading-relaxed">
-                  {action.description}
-                </p>
-              </div>
-            </Card>
-          ))}
-        </div>
-      </div>
-
-      {/* Nearby Activity */}
-      <div className="px-6 mb-8">
-        <div className="flex items-center justify-between mb-4">
-          <h3 className="text-lg font-semibold text-foreground">Nearby Activity</h3>
-          <Button 
-            variant="ghost" 
-            size="sm" 
-            onClick={() => navigate('/news')}
-            className="text-primary text-sm font-medium"
-          >
-            View All
-          </Button>
-        </div>
-        
-        <div className="space-y-3">
-          {nearbyActivity.map((activity, index) => (
-            <Card key={index} className="safe-card p-4 fade-in">
+          {/* Safety Status Card */}
+          <Card className="comfort-card p-4 mb-6 animate-scale-in" style={{ animationDelay: '0.2s' }}>
+            <div className="flex items-center justify-between mb-3">
               <div className="flex items-center space-x-3">
-                <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${activity.color}`}>
-                  <activity.icon className="w-5 h-5" />
+                <div className="w-10 h-10 bg-gradient-to-br from-green-400 to-green-500 rounded-xl flex items-center justify-center">
+                  <Shield className="w-5 h-5 text-white" />
                 </div>
-                <div className="flex-1">
-                  <h4 className="font-medium text-foreground text-sm">{activity.title}</h4>
-                  <p className="text-xs text-muted-foreground">{activity.location}</p>
-                  <p className="text-xs text-muted-foreground">{activity.time}</p>
+                <div>
+                  <h3 className="font-semibold text-foreground">Safety Score</h3>
+                  <p className="text-xs text-muted-foreground">Updated {safetyStatus.lastUpdate}</p>
                 </div>
               </div>
-            </Card>
-          ))}
-        </div>
-      </div>
+              <div className="text-right">
+                <div className="text-2xl font-bold text-green-600">{safetyStatus.score}%</div>
+                <div className="flex items-center space-x-1">
+                  <Star className="w-3 h-3 text-yellow-500 fill-current" />
+                  <span className="text-xs text-muted-foreground">Excellent</span>
+                </div>
+              </div>
+            </div>
+            
+            <div className="grid grid-cols-3 gap-3">
+              <div className="text-center p-3 bg-blue-50 rounded-xl">
+                <Users className="w-4 h-4 text-blue-600 mx-auto mb-1" />
+                <p className="text-xs font-medium text-foreground">{safetyStatus.contacts} Contacts</p>
+              </div>
+              <div className="text-center p-3 bg-green-50 rounded-xl">
+                <Navigation className="w-4 h-4 text-green-600 mx-auto mb-1" />
+                <p className="text-xs font-medium text-foreground">Location On</p>
+              </div>
+              <div className="text-center p-3 bg-purple-50 rounded-xl">
+                <Zap className="w-4 h-4 text-purple-600 mx-auto mb-1" />
+                <p className="text-xs font-medium text-foreground">Protected</p>
+              </div>
+            </div>
+          </Card>
 
-      <BottomNavigation />
+          {/* Quick Actions */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-foreground mb-4">Quick Actions</h3>
+            <div className="grid grid-cols-2 gap-4">
+              {quickActions.map((action, index) => (
+                <Card 
+                  key={index}
+                  className="quick-action p-4 cursor-pointer hover:shadow-lg transition-all duration-200 animate-scale-in"
+                  style={{ animationDelay: `${(index + 3) * 0.1}s` }}
+                  onClick={action.action}
+                >
+                  <div className="text-center">
+                    <div className={`w-12 h-12 bg-gradient-to-br ${action.bg} rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-lg`}>
+                      <action.icon className="w-6 h-6 text-white" />
+                    </div>
+                    <h4 className="font-semibold text-foreground text-sm mb-1">
+                      {action.label}
+                    </h4>
+                    <p className="text-xs text-muted-foreground leading-relaxed">
+                      {action.description}
+                    </p>
+                  </div>
+                </Card>
+              ))}
+            </div>
+          </div>
+
+          {/* Nearby Activity */}
+          <div className="mb-8">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-lg font-semibold text-foreground">Nearby Activity</h3>
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                onClick={() => navigate('/news')}
+                className="text-primary text-sm font-medium"
+              >
+                View All
+              </Button>
+            </div>
+            
+            <div className="space-y-3">
+              {nearbyActivity.map((activity, index) => (
+                <Card key={index} className="comfort-card p-4 animate-fade-in" style={{ animationDelay: `${(index + 7) * 0.1}s` }}>
+                  <div className="flex items-center space-x-3">
+                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${activity.color}`}>
+                      <activity.icon className="w-5 h-5" />
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="font-medium text-foreground text-sm">{activity.title}</h4>
+                      <p className="text-xs text-muted-foreground">{activity.location}</p>
+                      <p className="text-xs text-muted-foreground">{activity.time}</p>
+                    </div>
+                  </div>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <BottomNavigation />
+      </div>
     </div>
   );
 };

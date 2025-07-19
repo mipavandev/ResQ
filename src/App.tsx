@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import WelcomeScreen from "./components/onboarding/WelcomeScreen";
+import OnboardingSlider from "./components/onboarding/OnboardingSlider";
 import LoginScreen from "./components/auth/LoginScreen";
 import SignupScreen from "./components/auth/SignupScreen";
 import OTPScreen from "./components/auth/OTPScreen";
@@ -32,6 +33,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/welcome" element={<WelcomeScreen />} />
+          <Route path="/onboarding" element={<OnboardingSlider />} />
           <Route path="/login" element={<LoginScreen />} />
           <Route path="/signup" element={<SignupScreen />} />
           <Route path="/otp" element={<OTPScreen />} />
