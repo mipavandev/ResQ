@@ -175,8 +175,8 @@
 
   /* Primary action buttons */
   .primary-button {
-    @apply bg-gradient-to-br from-primary to-primary-dark hover:from-primary-light hover:to-primary
-           text-primary-foreground font-semibold shadow-lg shadow-primary/30
+    @apply bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-400 hover:to-blue-500
+           text-white font-semibold shadow-lg shadow-blue-500/30
            transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] rounded-xl;
   }
 
