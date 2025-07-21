@@ -33,10 +33,10 @@ const WelcomeScreen = () => {
 
   return (
     <div className="mobile-app">
-      <div className="mobile-screen bg-gradient-to-br from-blue-50 via-teal-50/50 to-green-50/30">
+      <div className="mobile-screen bg-gradient-to-br from-blue-50 via-teal-50/50 to-green-50/30 overflow-y-auto">
         
         {/* Hero Section */}
-        <div className="mobile-content pt-8">
+        <div className="mobile-content pt-8 pb-8">
           <div className="text-center animate-fade-in">
             
             {/* Logo */}
