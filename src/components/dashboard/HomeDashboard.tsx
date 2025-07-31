@@ -86,7 +86,7 @@ const HomeDashboard = () => {
 
   return (
     <div className="mobile-app">
-      <div className="mobile-screen bg-gradient-to-br from-blue-50 via-teal-50/50 to-green-50/30">
+      <div className="mobile-screen bg-gradient-to-br from-blue-50 via-teal-50/50 to-green-50/30 overflow-y-auto">
         
         {/* Header */}
         <div className="mobile-header">
