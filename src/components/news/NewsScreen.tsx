@@ -114,28 +114,29 @@ const NewsScreen = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-teal-50 to-blue-50">
-      {/* Header */}
-      <div className="flex items-center justify-between p-6 pt-12">
-        <Button 
-          variant="ghost" 
-          size="sm"
-          onClick={() => navigate('/dashboard')}
-          className="p-2"
-        >
-          <ArrowLeft className="w-5 h-5" />
-        </Button>
-        <h1 className="text-lg font-semibold text-gray-900">Safety News</h1>
-        <Button 
-          variant="ghost" 
-          size="sm"
-          className="p-2"
-        >
-          <Filter className="w-5 h-5" />
-        </Button>
-      </div>
+    <div className="mobile-app">
+      <div className="mobile-screen page-transition bg-gradient-to-br from-safe-teal to-safe-blue overflow-y-auto">
+        {/* Header */}
+        <div className="mobile-header">
+          <Button 
+            variant="ghost" 
+            size="sm"
+            onClick={() => navigate('/dashboard')}
+            className="p-2 smooth-transition"
+          >
+            <ArrowLeft className="w-5 h-5" />
+          </Button>
+          <h1 className="text-lg font-semibold text-foreground">Safety News</h1>
+          <Button 
+            variant="ghost" 
+            size="sm"
+            className="p-2 smooth-transition"
+          >
+            <Filter className="w-5 h-5" />
+          </Button>
+        </div>
 
-      <div className="px-6 pb-24">
+        <div className="mobile-content">
         {/* Search */}
         <Card className="p-4 mb-6 bg-white/90 backdrop-blur-sm border-0 shadow-sm">
           <div className="relative">
@@ -279,9 +280,10 @@ const NewsScreen = () => {
             </div>
           </div>
         </Card>
-      </div>
+        </div>
 
-      <BottomNavigation />
+        <BottomNavigation />
+      </div>
     </div>
   );
 };

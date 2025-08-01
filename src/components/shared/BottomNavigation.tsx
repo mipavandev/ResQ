@@ -28,7 +28,7 @@ const BottomNavigation = () => {
                 variant="ghost"
                 size="sm"
                 onClick={() => navigate(item.path)}
-                className={`flex flex-col items-center space-y-1 p-3 rounded-2xl transition-all duration-200 touch-target min-w-[60px] ${
+                className={`flex flex-col items-center space-y-1 p-3 rounded-2xl smooth-transition touch-target min-w-[60px] ${
                   isActive 
                     ? 'bg-primary text-primary-foreground shadow-lg shadow-primary/25' 
                     : 'text-muted-foreground hover:text-foreground hover:bg-gray-100'

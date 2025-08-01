@@ -70,22 +70,23 @@ const OTPScreen = () => {
   const isOtpComplete = otp.every(digit => digit !== '');
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-teal-50 to-blue-50 flex flex-col">
-      {/* Header */}
-      <div className="flex items-center justify-between p-6">
-        <Button 
-          variant="ghost" 
-          size="sm"
-          onClick={() => navigate(-1)}
-          className="p-2"
-        >
-          <ArrowLeft className="w-5 h-5" />
-        </Button>
-        <h1 className="text-lg font-semibold text-gray-900">Verify {verificationType === 'phone' ? 'Phone' : 'Email'}</h1>
-        <div className="w-9" />
-      </div>
+    <div className="mobile-app">
+      <div className="mobile-screen page-transition bg-gradient-to-br from-safe-teal to-safe-blue overflow-y-auto">
+        {/* Header */}
+        <div className="mobile-header">
+          <Button 
+            variant="ghost" 
+            size="sm"
+            onClick={() => navigate(-1)}
+            className="p-2 smooth-transition"
+          >
+            <ArrowLeft className="w-5 h-5" />
+          </Button>
+          <h1 className="text-lg font-semibold text-foreground">Verify {verificationType === 'phone' ? 'Phone' : 'Email'}</h1>
+          <div className="w-9" />
+        </div>
 
-      <div className="flex-1 px-6">
+        <div className="mobile-content">
         <Card className="p-6 bg-white/90 backdrop-blur-sm border-0 shadow-sm">
           <div className="text-center space-y-6">
             <div>
@@ -145,9 +146,10 @@ const OTPScreen = () => {
           </div>
         </Card>
 
-        <p className="text-center text-xs text-gray-500 mt-6 px-4 leading-relaxed">
+        <p className="text-center text-xs text-muted-foreground mt-6 px-4 leading-relaxed">
           Make sure to check your spam folder if you don't see the verification code
         </p>
+        </div>
       </div>
     </div>
   );

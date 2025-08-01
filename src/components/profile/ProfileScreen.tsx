@@ -75,29 +75,30 @@ const ProfileScreen = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-teal-50 to-blue-50">
-      {/* Header */}
-      <div className="flex items-center justify-between p-6 pt-12">
-        <Button 
-          variant="ghost" 
-          size="sm"
-          onClick={() => navigate('/dashboard')}
-          className="p-2"
-        >
-          <ArrowLeft className="w-5 h-5" />
-        </Button>
-        <h1 className="text-lg font-semibold text-gray-900">Profile</h1>
-        <Button 
-          variant="ghost" 
-          size="sm"
-          onClick={() => navigate('/settings')}
-          className="p-2"
-        >
-          <Settings className="w-5 h-5" />
-        </Button>
-      </div>
+    <div className="mobile-app">
+      <div className="mobile-screen page-transition bg-gradient-to-br from-safe-teal to-safe-blue overflow-y-auto">
+        {/* Header */}
+        <div className="mobile-header">
+          <Button 
+            variant="ghost" 
+            size="sm"
+            onClick={() => navigate('/dashboard')}
+            className="p-2 smooth-transition"
+          >
+            <ArrowLeft className="w-5 h-5" />
+          </Button>
+          <h1 className="text-lg font-semibold text-foreground">Profile</h1>
+          <Button 
+            variant="ghost" 
+            size="sm"
+            onClick={() => navigate('/settings')}
+            className="p-2 smooth-transition"
+          >
+            <Settings className="w-5 h-5" />
+          </Button>
+        </div>
 
-      <div className="px-6 pb-24">
+        <div className="mobile-content">
         {/* User Info */}
         <Card className="p-6 mb-6 bg-white/90 backdrop-blur-sm border-0 shadow-sm">
           <div className="flex items-center space-x-4 mb-4">
@@ -226,9 +227,10 @@ const ProfileScreen = () => {
           <LogOut className="w-5 h-5 mr-2" />
           Sign Out
         </Button>
-      </div>
+        </div>
 
-      <BottomNavigation />
+        <BottomNavigation />
+      </div>
     </div>
   );
 };

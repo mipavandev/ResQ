@@ -59,7 +59,8 @@ const SOSScreen = () => {
   ];
 
   return (
-    <div className="mobile-container bg-gradient-to-br from-red-50 via-orange-50/50 to-yellow-50/30">
+    <div className="mobile-app">
+      <div className="mobile-screen page-transition bg-gradient-to-br from-red-50 via-orange-50/50 to-yellow-50/30 overflow-y-auto">
       {/* Header */}
       <div className="px-6 pt-12 pb-6 text-center">
         <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-3xl flex items-center justify-center mx-auto mb-4 shadow-xl shadow-red-500/25">
@@ -186,6 +187,7 @@ const SOSScreen = () => {
             I'm Safe Now
           </Button>
         </Card>
+        </div>
       </div>
     </div>
   );

@@ -98,18 +98,19 @@ const TrustedContactsScreen = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-teal-50 to-blue-50">
-      {/* Header */}
-      <div className="flex items-center justify-between p-6 pt-12">
-        <Button 
-          variant="ghost" 
-          size="sm"
-          onClick={() => navigate('/dashboard')}
-          className="p-2"
-        >
-          <ArrowLeft className="w-5 h-5" />
-        </Button>
-        <h1 className="text-lg font-semibold text-gray-900">Trusted Contacts</h1>
+    <div className="mobile-app">
+      <div className="mobile-screen page-transition bg-gradient-to-br from-safe-teal to-safe-blue overflow-y-auto">
+        {/* Header */}
+        <div className="mobile-header">
+          <Button 
+            variant="ghost" 
+            size="sm"
+            onClick={() => navigate('/dashboard')}
+            className="p-2 smooth-transition"
+          >
+            <ArrowLeft className="w-5 h-5" />
+          </Button>
+          <h1 className="text-lg font-semibold text-foreground">Trusted Contacts</h1>
         <Dialog open={isAddingContact} onOpenChange={setIsAddingContact}>
           <DialogTrigger asChild>
             <Button 
@@ -162,9 +163,9 @@ const TrustedContactsScreen = () => {
             </div>
           </DialogContent>
         </Dialog>
-      </div>
+        </div>
 
-      <div className="px-6 pb-24">
+        <div className="mobile-content">
         {/* Quick Actions */}
         <Card className="p-4 mb-6 bg-white/90 backdrop-blur-sm border-0 shadow-sm">
           <h3 className="font-semibold text-gray-900 mb-4">Emergency Actions</h3>
@@ -283,9 +284,10 @@ const TrustedContactsScreen = () => {
             </Button>
           </Card>
         )}
-      </div>
+        </div>
 
-      <BottomNavigation />
+        <BottomNavigation />
+      </div>
     </div>
   );
 };

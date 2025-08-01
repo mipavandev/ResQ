@@ -46,14 +46,15 @@ const RoleSelectionScreen = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-teal-50 to-blue-50 flex flex-col">
-      {/* Header */}
-      <div className="text-center p-6 pt-12">
-        <h1 className="text-2xl font-bold text-gray-900 mb-2">Choose Your Role</h1>
-        <p className="text-gray-600 text-sm">Select how you'll use ResQ to personalize your experience</p>
-      </div>
+    <div className="mobile-app">
+      <div className="mobile-screen page-transition bg-gradient-to-br from-safe-teal to-safe-blue overflow-y-auto">
+        {/* Header */}
+        <div className="text-center p-6 pt-12">
+          <h1 className="text-2xl font-bold text-foreground mb-2">Choose Your Role</h1>
+          <p className="text-muted-foreground text-sm">Select how you'll use ResQ to personalize your experience</p>
+        </div>
 
-      <div className="flex-1 px-6">
+        <div className="mobile-content">
         <div className="space-y-4 mb-8">
           {roles.map((role) => (
             <Card 
@@ -95,9 +96,10 @@ const RoleSelectionScreen = () => {
           Continue to ResQ
         </Button>
 
-        <p className="text-center text-xs text-gray-500 px-4 leading-relaxed">
+        <p className="text-center text-xs text-muted-foreground px-4 leading-relaxed">
           You can change your role anytime in settings. Different roles have access to different features.
         </p>
+        </div>
       </div>
     </div>
   );
