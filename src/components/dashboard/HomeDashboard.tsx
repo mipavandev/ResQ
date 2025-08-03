@@ -91,8 +91,8 @@ const HomeDashboard = () => {
         
         {/* Header */}
         <div className="mobile-header-floating">
-          {showGreeting && (
-            <div className="animate-fade-in" onClick={() => setShowGreeting(false)}>
+            {showGreeting && (
+            <div className="animate-fade-in cursor-pointer" onClick={() => setShowGreeting(false)}>
               <h1 className="text-xl font-bold text-foreground">
                 Good evening, {userName.split(' ')[0]}
               </h1>
@@ -162,18 +162,14 @@ const HomeDashboard = () => {
               </div>
             </div>
             
-            <div className="grid grid-cols-3 gap-3">
-              <div className="text-center p-3 bg-blue-50 rounded-xl">
-                <Users className="w-4 h-4 text-blue-600 mx-auto mb-1" />
+            <div className="grid grid-cols-2 gap-3">
+              <div className="text-center p-3 bg-blue-50 dark:bg-blue-900/20 rounded-xl">
+                <Users className="w-4 h-4 text-blue-600 dark:text-blue-400 mx-auto mb-1" />
                 <p className="text-xs font-medium text-foreground">{safetyStatus.contacts} Contacts</p>
               </div>
-              <div className="text-center p-3 bg-green-50 rounded-xl">
-                <Navigation className="w-4 h-4 text-green-600 mx-auto mb-1" />
+              <div className="text-center p-3 bg-green-50 dark:bg-green-900/20 rounded-xl">
+                <Navigation className="w-4 h-4 text-green-600 dark:text-green-400 mx-auto mb-1" />
                 <p className="text-xs font-medium text-foreground">Location On</p>
-              </div>
-              <div className="text-center p-3 bg-purple-50 rounded-xl">
-                <Zap className="w-4 h-4 text-purple-600 mx-auto mb-1" />
-                <p className="text-xs font-medium text-foreground">Protected</p>
               </div>
             </div>
           </Card>
