@@ -14,7 +14,7 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import BottomNavigation from '../shared/BottomNavigation';
+
 
 const LocationScreen = () => {
   const navigate = useNavigate();
@@ -207,7 +207,7 @@ const LocationScreen = () => {
         </Card>
         </div>
 
-        <BottomNavigation />
+        
       </div>
     </div>
   );

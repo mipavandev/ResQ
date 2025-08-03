@@ -21,7 +21,7 @@ import { Card } from '@/components/ui/card';
 
 const HomeDashboard = () => {
   const navigate = useNavigate();
-  const [userName] = useState('Ananya Sharma');
+  const [userName] = useState('Ananya');
 
   const quickActions = [
     { 

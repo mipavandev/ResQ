@@ -18,7 +18,7 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import BottomNavigation from '../shared/BottomNavigation';
+
 
 const LearnScreen = () => {
   const navigate = useNavigate();
@@ -304,7 +304,7 @@ const LearnScreen = () => {
         </Card>
         </div>
 
-        <BottomNavigation />
+        
       </div>
     </div>
   );

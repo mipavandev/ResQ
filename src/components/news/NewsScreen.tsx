@@ -17,7 +17,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import BottomNavigation from '../shared/BottomNavigation';
+
 
 const NewsScreen = () => {
   const navigate = useNavigate();
@@ -282,7 +282,7 @@ const NewsScreen = () => {
         </Card>
         </div>
 
-        <BottomNavigation />
+        
       </div>
     </div>
   );
