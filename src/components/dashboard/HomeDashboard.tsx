@@ -21,8 +21,7 @@ import BottomNavigation from '../shared/BottomNavigation';
 
 const HomeDashboard = () => {
   const navigate = useNavigate();
-  const [userName] = useState('Ananya Sharma');
-  const [showGreeting, setShowGreeting] = useState(true);
+  const [userName] = useState('Sarah');
 
   const quickActions = [
     { 
@@ -90,23 +89,21 @@ const HomeDashboard = () => {
       <div className="mobile-screen bg-gradient-to-br from-blue-50 via-teal-50/50 to-green-50/30 overflow-y-auto">
         
         {/* Header */}
-        <div className="mobile-header-floating">
-          {showGreeting && (
-            <div className="animate-fade-in" onClick={() => setShowGreeting(false)}>
-              <h1 className="text-xl font-bold text-foreground">
-                Good evening, {userName.split(' ')[0]}
-              </h1>
-              <p className="text-sm text-muted-foreground">
-                You're safe and protected
-              </p>
-            </div>
-          )}
+        <div className="mobile-header">
+          <div className="animate-fade-in">
+            <h1 className="text-xl font-bold text-foreground">
+              Good evening, {userName}
+            </h1>
+            <p className="text-sm text-muted-foreground">
+              You're safe and protected
+            </p>
+          </div>
           <div className="flex space-x-2">
             <Button 
               variant="ghost" 
               size="sm"
               onClick={() => navigate('/settings')}
-              className="w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm shadow-sm hover:bg-white/90 hover:shadow-md smooth-transition"
+              className="w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all"
             >
               <Bell className="w-5 h-5 text-muted-foreground" />
             </Button>
@@ -114,7 +111,7 @@ const HomeDashboard = () => {
               variant="ghost" 
               size="sm"
               onClick={() => navigate('/profile')}
-              className="w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm shadow-sm hover:bg-white/90 hover:shadow-md smooth-transition"
+              className="w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all"
             >
               <Settings className="w-5 h-5 text-muted-foreground" />
             </Button>
@@ -158,7 +155,10 @@ const HomeDashboard = () => {
               </div>
               <div className="text-right">
                 <div className="text-2xl font-bold text-green-600">{safetyStatus.score}%</div>
-                <span className="text-xs text-muted-foreground">Excellent</span>
+                <div className="flex items-center space-x-1">
+                  <Star className="w-3 h-3 text-yellow-500 fill-current" />
+                  <span className="text-xs text-muted-foreground">Excellent</span>
+                </div>
               </div>
             </div>
             

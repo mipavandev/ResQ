@@ -66,49 +66,33 @@
   }
 
   .dark {
-    --background: 220 18% 12%;
-    --foreground: 210 40% 95%;
+    --background: 215 28% 17%;
+    --foreground: 213 31% 91%;
 
-    --card: 220 18% 15%;
-    --card-foreground: 210 40% 95%;
+    --card: 215 28% 17%;
+    --card-foreground: 213 31% 91%;
 
-    --popover: 220 18% 15%;
-    --popover-foreground: 210 40% 95%;
+    --popover: 215 28% 17%;
+    --popover-foreground: 213 31% 91%;
 
-    --primary: 200 95% 45%;
+    --primary: 173 58% 39%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 18% 18%;
-    --secondary-foreground: 210 40% 95%;
+    --secondary: 215 28% 17%;
+    --secondary-foreground: 213 31% 91%;
 
-    --muted: 220 13% 20%;
-    --muted-foreground: 220 9% 65%;
+    --muted: 223 47% 11%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 200 95% 45%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 216 34% 17%;
+    --accent-foreground: 210 40% 98%;
 
-    --destructive: 0 85% 55%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
 
-    --border: 220 13% 25%;
-    --input: 220 13% 25%;
-    --ring: 200 95% 45%;
-
-    /* Emergency colors for dark mode */
-    --emergency: 0 85% 55%;
-    --emergency-light: 0 85% 65%;
-    --emergency-dark: 0 85% 45%;
-    --success: 142 76% 36%;
-    --success-light: 142 76% 46%;
-    --warning: 43 96% 56%;
-    --warning-light: 43 96% 66%;
-    --info: 200 95% 45%;
-    --info-light: 200 95% 55%;
-    
-    /* Safe colors for dark mode */
-    --safe-blue: 210 50% 15%;
-    --safe-green: 140 30% 15%;
-    --safe-teal: 180 30% 15%;
+    --border: 216 34% 17%;
+    --input: 216 34% 17%;
+    --ring: 173 58% 39%;
   }
 }
 
@@ -144,16 +128,9 @@
   }
 
   .mobile-screen {
-    @apply w-full h-screen bg-background;
+    @apply w-full h-screen overflow-hidden bg-background;
     padding-top: var(--mobile-safe-area-top);
     padding-bottom: var(--mobile-safe-area-bottom);
-    overflow-y: auto;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE and Edge */
-  }
-
-  .mobile-screen::-webkit-scrollbar {
-    display: none; /* Chrome, Safari and Opera */
   }
 
   /* Mobile header with safe area */
@@ -165,22 +142,10 @@
     z-index: 50;
   }
 
-  /* Floating header that disappears on scroll */
-  .mobile-header-floating {
-    height: var(--mobile-header);
-    @apply flex items-center justify-between px-6 bg-background/95 backdrop-blur-sm;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 40;
-  }
-
   /* Content area accounting for header and bottom nav */
   .mobile-content {
     @apply px-6;
-    min-height: calc(100vh - var(--mobile-bottom-nav));
-    padding-top: var(--mobile-header);
+    min-height: calc(100vh - var(--mobile-header) - var(--mobile-bottom-nav));
     padding-bottom: 2rem;
   }
 
@@ -190,14 +155,6 @@
     @apply fixed bottom-0 left-0 right-0 bg-background/95 backdrop-blur-sm border-t border-border/60;
     z-index: 50;
     padding-bottom: var(--mobile-safe-area-bottom);
-    max-width: 428px;
-    margin: 0 auto;
-  }
-  
-  @media (max-width: 428px) {
-    .mobile-bottom-nav {
-      max-width: 100vw;
-    }
   }
 }
 
@@ -227,7 +184,7 @@
 
   /* Primary action buttons */
   .primary-button {
-    @apply bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700
+    @apply bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-400 hover:to-blue-500
            text-white font-semibold shadow-lg shadow-blue-500/30
            transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] rounded-xl;
   }
@@ -238,16 +195,10 @@
            border border-border/40 shadow-md shadow-black/5 rounded-2xl backdrop-blur-sm;
   }
 
-  .dark .comfort-card {
-    @apply bg-gradient-to-br from-card via-card/80 to-card/60 
-           border border-border shadow-md shadow-black/20;
-  }
-
   /* Quick action buttons */
   .quick-action {
     @apply bg-gradient-to-br from-white to-background/80 border border-border/60
-           shadow-md hover:shadow-xl hover:bg-gradient-to-br hover:from-blue-50 hover:to-teal-50
-           transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]
+           shadow-md hover:shadow-lg transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]
            rounded-xl backdrop-blur-sm;
   }
 
