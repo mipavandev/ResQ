@@ -17,11 +17,11 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import BottomNavigation from '../shared/BottomNavigation';
+
 
 const HomeDashboard = () => {
   const navigate = useNavigate();
-  const [userName] = useState('Sarah');
+  const [userName] = useState('Ananya Sharma');
 
   const quickActions = [
     { 
@@ -92,7 +92,7 @@ const HomeDashboard = () => {
         <div className="mobile-header">
           <div className="animate-fade-in">
             <h1 className="text-xl font-bold text-foreground">
-              Good evening, {userName}
+              Good morning, {userName}
             </h1>
             <p className="text-sm text-muted-foreground">
               You're safe and protected
@@ -238,7 +238,7 @@ const HomeDashboard = () => {
           </div>
         </div>
 
-        <BottomNavigation />
+        
       </div>
     </div>
   );

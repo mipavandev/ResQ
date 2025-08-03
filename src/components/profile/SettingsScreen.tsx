@@ -23,7 +23,7 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Switch } from '@/components/ui/switch';
 import { Label } from '@/components/ui/label';
-import BottomNavigation from '../shared/BottomNavigation';
+
 
 const SettingsScreen = () => {
   const navigate = useNavigate();
@@ -211,6 +211,12 @@ const SettingsScreen = () => {
                 <Button variant="outline" size="sm" className="text-xs">
                   Triple Tap
                 </Button>
+                <Button variant="outline" size="sm" className="text-xs">
+                  Shake Mobile
+                </Button>
+                <Button variant="outline" size="sm" className="text-xs">
+                  Voice Command
+                </Button>
               </div>
             </div>
             
@@ -259,7 +265,7 @@ const SettingsScreen = () => {
         </Card>
         </div>
 
-        <BottomNavigation />
+        
       </div>
     </div>
   );

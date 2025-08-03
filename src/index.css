@@ -128,9 +128,17 @@
   }
 
   .mobile-screen {
-    @apply w-full h-screen overflow-hidden bg-background;
+    @apply w-full h-screen bg-background;
     padding-top: var(--mobile-safe-area-top);
     padding-bottom: var(--mobile-safe-area-bottom);
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+  }
+
+  .mobile-screen::-webkit-scrollbar {
+    display: none; /* WebKit */
   }
 
   /* Mobile header with safe area */
@@ -184,9 +192,19 @@
 
   /* Primary action buttons */
   .primary-button {
-    @apply bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-400 hover:to-blue-500
+    @apply bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700
            text-white font-semibold shadow-lg shadow-blue-500/30
            transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] rounded-xl;
+  }
+
+  /* Remove scrollbars globally */
+  * {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+  }
+
+  *::-webkit-scrollbar {
+    display: none; /* WebKit */
   }
 
   /* Safe, comfortable cards */
