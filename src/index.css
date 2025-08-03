@@ -174,14 +174,6 @@
     left: 0;
     right: 0;
     z-index: 40;
-    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
-  }
-
-  /* Hide header on scroll */
-  .mobile-header-hidden {
-    opacity: 0;
-    transform: translateY(-100%);
-    pointer-events: none;
   }
 
   /* Content area accounting for header and bottom nav */
@@ -254,14 +246,9 @@
   /* Quick action buttons */
   .quick-action {
     @apply bg-gradient-to-br from-white to-background/80 border border-border/60
-           shadow-md hover:shadow-xl hover:bg-gradient-to-br hover:from-primary/10 hover:to-accent/10
+           shadow-md hover:shadow-xl hover:bg-gradient-to-br hover:from-blue-50 hover:to-teal-50
            transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]
            rounded-xl backdrop-blur-sm;
-  }
-
-  .dark .quick-action {
-    @apply bg-gradient-to-br from-card/80 to-card/60 border border-border
-           hover:from-primary/20 hover:to-accent/20;
   }
 
   /* Status indicators */
