@@ -29,7 +29,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter basename="/resq-safe-haven-app">
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/welcome" element={<WelcomeScreen />} />
