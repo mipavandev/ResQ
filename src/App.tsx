@@ -29,7 +29,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter basename={import.meta.env.PROD ? "/resq-safe-haven-app" : ""}>
+      <BrowserRouter basename={import.meta.env.PROD ? "/ResQ" : ""}>
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/welcome" element={<WelcomeScreen />} />
