@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: mode === 'production' ? '/resq-safe-haven-app/' : '/',
+  base: mode === 'production' ? '/ResQ/' : '/',
   server: {
     host: "::",
     port: 8080,
