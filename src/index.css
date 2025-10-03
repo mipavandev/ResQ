@@ -21,6 +21,7 @@
     --primary-foreground: 0 0% 100%;
     --primary-light: 200 95% 55%;
     --primary-dark: 200 95% 35%;
+    --primary-hover: 200 95% 38%;
 
     /* Secondary: Clean White with subtle tint */
     --secondary: 210 40% 98%;
@@ -35,6 +36,7 @@
     /* Emergency Red - pulsing SOS button */
     --destructive: 0 85% 55%;
     --destructive-foreground: 0 0% 100%;
+    --destructive-hover: 0 85% 45%;
 
     --border: 220 13% 91%;
     --input: 220 13% 91%;
