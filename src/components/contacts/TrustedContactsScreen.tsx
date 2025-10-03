@@ -171,7 +171,8 @@ const TrustedContactsScreen = () => {
           <h3 className="font-semibold text-gray-900 mb-4">Emergency Actions</h3>
           <div className="grid grid-cols-2 gap-3">
             <Button
-              className="h-16 flex-col space-y-1 bg-red-500 hover:bg-red-600 text-white"
+              variant="destructive"
+              className="h-16 flex-col space-y-1"
               onClick={() => navigate('/sos')}
             >
               <Shield className="w-5 h-5" />
@@ -180,10 +181,10 @@ const TrustedContactsScreen = () => {
             
             <Button
               variant="outline"
-              className="h-16 flex-col space-y-1 border-blue-200 hover:bg-blue-50"
+              className="h-16 flex-col space-y-1"
               onClick={() => navigate('/location')}
             >
-              <MapPin className="w-5 h-5 text-blue-600" />
+              <MapPin className="w-5 h-5" />
               <span className="text-xs font-medium">Share Location</span>
             </Button>
           </div>
@@ -238,18 +239,18 @@ const TrustedContactsScreen = () => {
                     variant="outline"
                     size="sm"
                     onClick={() => callContact(contact.phone)}
-                    className="h-10 border-green-200 hover:bg-green-50"
+                    className="h-10"
                   >
-                    <Phone className="w-4 h-4 text-green-600 mr-1" />
+                    <Phone className="w-4 h-4 mr-1" />
                     <span className="text-xs">Call</span>
                   </Button>
                   
                   <Button
                     variant="outline"
                     size="sm"
-                    className="h-10 border-blue-200 hover:bg-blue-50"
+                    className="h-10"
                   >
-                    <MessageSquare className="w-4 h-4 text-blue-600 mr-1" />
+                    <MessageSquare className="w-4 h-4 mr-1" />
                     <span className="text-xs">Message</span>
                   </Button>
                   
@@ -257,9 +258,9 @@ const TrustedContactsScreen = () => {
                     variant="outline"
                     size="sm"
                     onClick={() => sendSOSToContact(contact)}
-                    className="h-10 border-red-200 hover:bg-red-50"
+                    className="h-10"
                   >
-                    <Shield className="w-4 h-4 text-red-600 mr-1" />
+                    <Shield className="w-4 h-4 mr-1" />
                     <span className="text-xs">SOS</span>
                   </Button>
                 </div>

@@ -112,7 +112,7 @@ const WelcomeScreen = () => {
             <Button 
               onClick={() => navigate('/login')}
               variant="outline"
-              className="w-full h-12 rounded-xl border-2 border-border text-base font-medium transition-all duration-200 hover:bg-muted/50"
+              className="w-full h-12 rounded-xl text-base font-medium"
             >
               I Already Have an Account
             </Button>
